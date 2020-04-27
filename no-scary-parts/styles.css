@@ -1,12 +1,15 @@
 .progress-bar .slider-container:before {
   content: "";
   position: absolute;
-  top: 7px;
+  top: 10px;
   left: 0;
   right: 0;
   width: 100%;
   height: 3px;
-  overflow: hidden;
+}
+
+.progress-bar .slider-container:hover:before {
+  height: 8px;
 }
 
 body.no-scary-parts [data-gv2key="add_to_watchlist"] {
