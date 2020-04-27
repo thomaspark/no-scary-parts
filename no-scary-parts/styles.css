@@ -1,0 +1,32 @@
+.progress-bar .slider-container:before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+}
+
+body.no-scary-parts [data-gv2key="add_to_watchlist"] {
+  position: relative;
+}
+
+body.no-scary-parts [data-gv2key="add_to_watchlist"]:after {
+  content: "NO SCARY PARTS";
+  position: absolute;
+  display: block flex;
+  left: 100%;
+  padding: 6px 4px 4px;
+  border: 1px solid #fff;
+  margin-left: 24px;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  pointer-events: none;
+  z-index: 10;
+}

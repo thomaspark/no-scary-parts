@@ -1,0 +1,32 @@
+{
+  "name": "No Scary Parts for Family Movies",
+  "short_name": "No Scary Parts",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Automatically skip the scary parts of popular family movies on streaming services like Disney+",
+  "homepage_url": "https://thomaspark.co",
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.disneyplus.com/video/*",
+        "https://www.disneyplus.com/movies/*"
+      ],
+      "js": ["app.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+     "webNavigation"
+  ],
+  "web_accessible_resources": ["data.json"]
+}
