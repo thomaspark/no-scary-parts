@@ -2,50 +2,64 @@
 <html>
 <head>
   <title>No Scary Parts: Chrome extension that automatically skips the scary parts of family movies</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="vendor/jquery/jquery-3.5.0.min.js"></script>
-  <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-md navbar-light">
+  <nav class="navbar navbar-light">
     <div class="container">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarToggler">
-        <a class="navbar-brand mr-auto" href="./">
-          <img src="images/logo.svg" width="30" height="30" class="logo d-inline-block align-top mr-2" alt="No Scary Parts Logo">
-          No Scary Parts
-        </a>
-      </div>
+      <a class="navbar-brand mr-auto" href="./">
+        <img src="images/logo.svg" width="30" height="30" class="logo d-inline-block align-top mr-2" alt="No Scary Parts Logo">
+        No Scary Parts
+      </a>
     </div>
   </nav>
 
   <div class="container">
-    <div class="hero-container d-flex flex-column flex-md-row">
-      <div class="hero">
-          <h1>No Scary Parts</h1>
-          <p>Automatically skip the scary scenes in family movies from <strong>Disney+</strong>, so your little ones can enjoy the characters and music.</p>
-          <a class="btn btn-primary" href="#" role="button">Add to Chrome <span class="muted">It's Free</span></a>
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="hero">
+          <h1>Skip the scary scenes</h1>
+          <p>Automatically skip the scary parts in family movies from <strong>Disney+</strong>, so your little ones can enjoy the characters and music.</p>
+          <a class="btn btn-primary" href="#" role="button">Add to Chrome <span class="muted">It's Free!</span></a>
+        </div>
       </div>
-      <div class="hero">
+      <div class="col-12 col-lg-6 d-flex align-items-center">
+        <div class="player">
+          <div class="toolbar">
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="field"></div>
+          </div>
+          <div class="controls">
+            <div class="progress-bar">
+              <div class="scene scene-1"></div>
+              <div class="scene scene-2"></div>
+              <div class="bar"></div>
+            </div>
+            <div class="dot"></div>
+          </div>
+          <div class="video">
+            <img class="img-fluid" src="images/scene-b.jpg">
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="container">
     <section>
-      <h2>How It Works</h2>
-      <p>While playing a movie, scenes to be skipped are highlighted in the progress bar. It's that easy.</p>
-      <p>Scenes with overly dramatic, traumatic, or just plain creepy moments are skipped, while maintaining continuity as much as possible.</p>
+      <h2>How it works</h2>
+      <p>To install No Scary Parts, click the "Add to Chrome" button above. You'll be redirected to the Chrome store to finish the install.</p>
+      <p>Go to Disney+ and choose a supported movie to watch. While browsing Disney+, supported titles are marked next to the play button with the icon <img src="images/icon.svg" width="22" height="22" class="icon d-inline-block align-top" alt="No Scary Parts Logo">.</p>
+      <p>While playing, scenes with overly dramatic, traumatic, or just plain creepy moments are automatically skipped, maintaining continuity as much as possible. These scenes are highlighted in the progress bar.</p>
     </section>
 
     <section>
-      <h2>Supported Titles</h2>
-      <p>When you browse Disney+, supported titles are marked next to the play button with the icon 
-          <img src="images/icon.svg" width="22" height="22" class="icon d-inline-block align-top" alt="No Scary Parts Logo">.</p>
+      <h2>Supported titles</h2>
       <p>Currently supported titles are listed below, with more on the way. Make your requests here.</p>
 
       <div class="list-group" id="titles">
