@@ -1,0 +1,100 @@
+body {
+  margin-bottom: 20rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+section {
+  margin: 3rem 0 8rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: rgba(127, 14, 127, 0.9);
+  font-weight: 600;
+}
+
+a:hover {
+  color: rgba(127, 14, 127, 1);
+}
+
+.btn-primary {
+  background-color: rgba(127, 14, 127, 0.9);
+  border-color: rgba(127, 14, 127, 0.9);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+  background-color: rgba(127, 14, 127, 1);
+  border-color: rgba(127, 14, 127, 0.9);
+  box-shadow: none;
+}
+
+.hero-container {
+  display: flex;
+}
+
+.hero {
+  padding: 6em 0;
+  margin: auto;
+}
+
+.hero:last-child {
+  min-width: 600px;
+  min-height: 400px;
+  background-color: pink;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero .btn {
+  padding: .75em 2.5em;
+  margin-top: 2em;
+  border-radius: 31px;
+  font-weight: 600;
+}
+
+.hero .btn .muted {
+  display: inline-block;
+  margin-left: 0.4em;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.list-group-item-action,
+.list-group-item-action:hover {
+  color: inherit;
+  font-weight: 600;
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+  background-color: rgba(127, 14, 127, 0.1);
+}
+
+.icon {
+  margin-top: 3px;
+}
+
+#titles {
+  margin-top: 2rem;
+  max-width: 300px;
+}
