@@ -198,12 +198,29 @@ a:hover {
 
 #titles {
   margin-top: 2rem;
-  max-width: 300px;
 }
 
-@media (max-width: 767px) {
+#titles td {
+  border-left: none;
+  border-right: none;
 }
 
+#titles .bar {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  min-width: 30vw;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+#titles .scene {
+  display: inline-block;
+  position: absolute;
+  height: 10px;
+  background-color: purple;
+}
 
 @media (max-width: 991px) {
   .hero {
