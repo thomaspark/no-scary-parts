@@ -85,6 +85,8 @@ function setProgressBarStyles(video, scenes, sheet) {
   const color = 'purple';
   let background = '';
 
+  console.log('duration:', duration);
+
   scenes.forEach((scene) => {
     const start = (100 * scene.start / duration).toFixed(0);
     const end = (100 * scene.end / duration).toFixed(0);
