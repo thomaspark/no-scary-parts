@@ -1,4 +1,4 @@
-
+const DEBUG = true;
 const json = chrome.runtime.getURL('data.json');
 
 fetch(json)
@@ -33,7 +33,9 @@ function init(data, sheet) {
     const prefix = 'https://www.disneyplus.com/video/';
     const id = url.split(prefix)[1];
 
-    console.log('id', id);
+    if (DEBUG) {
+      console.log('id:', id);
+    }
 
     if (id in data) {
       const scenes = data[id].scenes;
@@ -58,7 +60,9 @@ function init(data, sheet) {
     const prefix = 'https://www.disneyplus.com/movies/';
     const slug = url.split('/')[4];
 
-    console.log('slug', slug);
+    if (DEBUG) {
+      console.log('slug:', slug);
+    }
 
     for (let id in data) {
       if (data[id].slug == slug) {
@@ -70,7 +74,9 @@ function init(data, sheet) {
 }
 
 function checkTime(video, scenes) {
-  console.log(video.currentTime);
+  if (DEBUG) {
+    console.log(video.currentTime);
+  }
   
   scenes.forEach((scene) => {
     if ((scene.start <= video.currentTime) && (video.currentTime < scene.end)) {
@@ -85,7 +91,9 @@ function setProgressBarStyles(video, scenes, sheet) {
   const color = 'purple';
   let background = '';
 
-  console.log('duration:', duration);
+  if (DEBUG) {
+    console.log('duration:', duration);
+  }
 
   scenes.forEach((scene) => {
     const start = (100 * scene.start / duration).toFixed(0);
