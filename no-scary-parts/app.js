@@ -96,8 +96,8 @@ function setProgressBarStyles(video, scenes, sheet) {
   }
 
   scenes.forEach((scene) => {
-    const start = (100 * scene.start / duration).toFixed(0);
-    const end = (100 * scene.end / duration).toFixed(0);
+    const start = (100 * scene.start / duration).toFixed(4);
+    const end = (100 * scene.end / duration).toFixed(4);
     background += 'transparent ' + start + '%, ';
     background += color + ' ' + start + '%, ';
     background += color + ' ' + end + '%, ';
