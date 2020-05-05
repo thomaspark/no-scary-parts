@@ -4,7 +4,7 @@ const json = chrome.runtime.getURL('data.json');
 fetch(json)
   .then((response) => response.json())
   .then((data) => {
-    const sheet = (function() {
+    const sheet = (() => {
       const style = document.createElement('style');
       style.appendChild(document.createTextNode(''));
       document.head.appendChild(style);
@@ -12,7 +12,7 @@ fetch(json)
     })();
 
     const port = chrome.runtime.connect({name: "no-scary-parts"});
-    port.onMessage.addListener(function(msg) {
+    port.onMessage.addListener((msg) => {
       if (msg.action == "pushstate") {
         init(data, sheet);
       }
