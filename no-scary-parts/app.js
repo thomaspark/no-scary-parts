@@ -17,6 +17,9 @@ fetch(json)
         init(data, sheet);
       }
     });
+    port.onDisconnect.addListener((msg) => {
+      port = null;
+    });
 
     init(data, sheet)
   });
