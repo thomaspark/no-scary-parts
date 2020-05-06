@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 const json = chrome.runtime.getURL('data.json');
 
 fetch(json)
