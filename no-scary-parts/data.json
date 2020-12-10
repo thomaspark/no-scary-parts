@@ -67,6 +67,30 @@
       }
     ]
   },
+  "87982e2b-5636-41a2-9d9a-5bc77cacb7d7": {
+    "title": "The Lion King",
+    "slug": "the-lion-king",
+    "url": "1HqwiEcje6Nj",
+    "duration": "5469.505708",
+    "scenes": [
+      {
+        "start": "1152",
+        "end": "1344.702962"
+      },
+      {
+        "start": "1531.2",
+        "end": "1824.458752"
+      },
+      {
+        "start": "2323.71753",
+        "end": "2456.94217"
+      },
+      {
+        "start": "4304.572017",
+        "end": "4862.197684"
+      }
+    ]
+  },
   "eef030e8-70da-41cb-8132-fe7a66946855": {
     "title": "The Little Mermaid",
     "slug": "the-little-mermaid",
