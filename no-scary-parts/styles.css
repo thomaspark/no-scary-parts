@@ -32,11 +32,13 @@ body.no-scary-parts [data-gv2containerkey="contentMeta"] > :first-child > :first
   pointer-events: none;
 }
 
-[data-gv2key="8b998fae-f7a6-434a-a8c2-79d853247782"] .basic-card:before,
-[data-gv2key="ffc06e7f-8122-4d5d-8b87-b4cc8d830136"] .basic-card:before,
-[data-gv2key="8e06a8b7-d667-4e31-939d-f40a6dd78a88"] .basic-card:before,
-[data-gv2key="eef030e8-70da-41cb-8132-fe7a66946855"] .basic-card:before,
-[data-gv2key="42dc2dbf-331d-4665-8746-de2ac6d1f9a2"] .basic-card:before {
+[data-gv2elementvalue="8b998fae-f7a6-434a-a8c2-79d853247782"].basic-card:before,
+[data-gv2elementvalue="ffc06e7f-8122-4d5d-8b87-b4cc8d830136"].basic-card:before,
+[data-gv2elementvalue="8e06a8b7-d667-4e31-939d-f40a6dd78a88"].basic-card:before,
+[data-gv2elementvalue="87982e2b-5636-41a2-9d9a-5bc77cacb7d7"].basic-card:before,
+[data-gv2elementvalue="eef030e8-70da-41cb-8132-fe7a66946855"].basic-card:before,
+[data-gv2elementvalue="42dc2dbf-331d-4665-8746-de2ac6d1f9a2"].basic-card:before,
+[data-gv2elementvalue="65e2279c-5d21-4e92-9e70-42f8507c9996"].basic-card:before {
   content: "";
   width: 100%;
   height: 100%;
