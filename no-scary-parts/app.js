@@ -92,22 +92,28 @@ function setProgressBarStyles(video, scenes, sheet) {
   const selector = '.progress-bar .slider-container:before';
   const duration = video.duration;
   const color = 'purple';
-  let background = '';
+  let background = 'background: ';
 
   if (DEBUG) {
     console.log('duration:', duration);
   }
 
-  scenes.forEach((scene) => {
+  scenes.forEach((scene, i) => {
     const start = (100 * scene.start / duration).toFixed(4);
     const end = (100 * scene.end / duration).toFixed(4);
-    background += 'transparent ' + start + '%, ';
-    background += color + ' ' + start + '%, ';
-    background += color + ' ' + end + '%, ';
-    background += 'transparent ' + end + '%, ';
+    const width = (end - start);
+    background += 'linear-gradient(90deg, ';
+    background += 'transparent ' + start + '%,';
+    background += color + ' ' + start + '%,';
+    background += color + ' ' + end + '%,';
+    background += 'transparent ' + end + '%)';
+
+    if (i < scenes.length - 1) {
+      background += ', ';
+    }
   });
 
-  background = 'background: linear-gradient(to right, transparent, ' + background + 'transparent);';
+  background += ';'
 
   sheet.insertRule(selector + '{' + background + '}', 0);
 }
