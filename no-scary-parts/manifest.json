@@ -1,8 +1,8 @@
 {
   "name": "No Scary Parts",
   "short_name": "No Scary Parts",
-  "version": "1.3.0",
-  "manifest_version": 2,
+  "version": "1.4.0",
+  "manifest_version": 3,
   "description": "Automatically skip the scary parts of popular family movies on streaming services like Disney+",
   "homepage_url": "https://thomaspark.co/projects/no-scary-parts/",
   "icons": {
@@ -19,13 +19,13 @@
     }
   ],
   "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
+    "service_worker": "background.js"
   },
   "permissions": [
      "webNavigation"
   ],
-  "web_accessible_resources": ["data.json"]
+  "web_accessible_resources": [{
+    "resources": ["data.json"],
+    "matches": ["https://www.disneyplus.com/*"]
+  }]
 }
