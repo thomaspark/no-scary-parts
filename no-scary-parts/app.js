@@ -11,7 +11,7 @@ fetch(json)
       return style.sheet;
     })();
 
-    const port = chrome.runtime.connect({name: "no-scary-parts"});
+    let port = chrome.runtime.connect({name: "no-scary-parts"});
     port.onMessage.addListener((msg) => {
       if (msg.action == "pushstate") {
         init(data, sheet);
