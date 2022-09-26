@@ -9,6 +9,7 @@
 }
 
 .progress-bar .slider-container:hover:before {
+  top: 7px;
   height: 8px;
 }
 
