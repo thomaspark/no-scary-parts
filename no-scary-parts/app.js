@@ -90,7 +90,8 @@ function checkTime(video, scenes) {
 }
 
 function convertTimeToSeconds(timeWithOrWithoutColons) {
-  // input could be "34" representing 34 seconds
+  // input could be 34 representing 34 seconds
+  // or input could be "34" representing 34 seconds
   // or input could be "1:34" representing 1 min and 34 sec
   // or input could be "1:32:34" representing 1 hr, 32 min, and 34 seconds
   // input must be string or number
