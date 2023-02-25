@@ -82,15 +82,41 @@ function checkTime(video, scenes) {
   }
   
   scenes.forEach((scene) => {
-    if ((scene.start <= video.currentTime) && (video.currentTime < scene.end)) {
-      video.currentTime = scene.end;
+    const end = convertTimeToSeconds(scene.end)
+    if ((convertTimeToSeconds(scene.start) <= video.currentTime) && (video.currentTime < end)) {
+      video.currentTime = end;
     }
   });
 }
 
+function convertTimeToSeconds(timeWithOrWithoutColons) {
+  // input could be 34 representing 34 seconds
+  // or input could be "34" representing 34 seconds
+  // or input could be "1:34" representing 1 min and 34 sec
+  // or input could be "1:32:34" representing 1 hr, 32 min, and 34 seconds
+  // input must be string or number
+  // return value is time in seconds as number
+  let seconds = 0;
+  if(typeof timeWithOrWithoutColons == 'number'){
+    seconds = timeWithOrWithoutColons;
+  } else {
+    const timeParts = timeWithOrWithoutColons.split(':').map(x => parseFloat((x)));
+    if (timeParts.length == 1) {
+      seconds = timeParts[0];
+    } else if (timeParts.length == 2) {
+      seconds = timeParts[0]*60 + timeParts[1];
+    } else if (timeParts.length == 3) {
+      seconds = timeParts[0]*60*60 + timeParts[1]*60 + timeParts[2];
+    } else {
+      throw 'Unexpected time to convert to seconds '+timeWithOrWithoutColons;
+    }
+  }
+  return seconds;
+}
+
 function setProgressBarStyles(video, scenes, sheet) {
   const selector = '.progress-bar .slider-container:before';
-  const duration = video.duration;
+  const duration = convertTimeToSeconds(video.duration);
   const color = 'purple';
   let background = 'background: ';
 
@@ -99,8 +125,8 @@ function setProgressBarStyles(video, scenes, sheet) {
   }
 
   scenes.forEach((scene, i) => {
-    const start = (100 * scene.start / duration).toFixed(4);
-    const end = (100 * scene.end / duration).toFixed(4);
+    const start = (100 * convertTimeToSeconds(scene.start) / duration).toFixed(4);
+    const end = (100 * convertTimeToSeconds(scene.end) / duration).toFixed(4);
     const width = (end - start);
     background += 'linear-gradient(90deg, ';
     background += 'transparent ' + start + '%,';
