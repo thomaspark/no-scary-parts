@@ -41,13 +41,14 @@ function init(data, sheet) {
     }
 
     if (id in data) {
+      const duration = data[id].duration;
       const scenes = data[id].scenes;
       const check = setInterval(() => {
         const video = document.querySelector('#hudson-wrapper video');
 
         if (video && video.readyState === 4) {
           clearInterval(check);
-          setProgressBarStyles(video, scenes, sheet);
+          setProgressBarStyles(duration, scenes, sheet);
 
           video.addEventListener('seeking', () => {
             checkTime(video, scenes);
@@ -88,9 +89,8 @@ function checkTime(video, scenes) {
   });
 }
 
-function setProgressBarStyles(video, scenes, sheet) {
+function setProgressBarStyles(duration, scenes, sheet) {
   const selector = '.progress-bar .slider-container:before';
-  const duration = video.duration;
   const color = 'purple';
   let background = 'background: ';
 
