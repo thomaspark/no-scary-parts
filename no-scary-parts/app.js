@@ -83,8 +83,8 @@ function checkTime(video, scenes) {
   }
   
   scenes.forEach((scene) => {
-    if ((scene.start <= video.currentTime) && (video.currentTime < scene.end)) {
-      video.currentTime = scene.end;
+    if ((scene['start'] <= video.currentTime) && (video.currentTime < scene['end'])) {
+      video.currentTime = scene['end'];
     }
   });
 }
@@ -99,8 +99,8 @@ function setProgressBarStyles(duration, scenes, sheet) {
   }
 
   scenes.forEach((scene, i) => {
-    const start = (100 * scene.start / duration).toFixed(4);
-    const end = (100 * scene.end / duration).toFixed(4);
+    const start = (100 * scene['start'] / duration).toFixed(4);
+    const end = (100 * scene['end'] / duration).toFixed(4);
     const width = (end - start);
     background += 'linear-gradient(90deg, ';
     background += 'transparent ' + start + '%,';
