@@ -26,7 +26,7 @@ fetch(json)
 
 function init(data, sheet) {
   document.body.classList.remove('no-scary-parts');
-  const url = window.location.href;
+  const url = window.location.href.replace(/\w{2}-\w{2}\//, ''); // remove language slug for other regions
 
   if (sheet.cssRules.length) {
     sheet.deleteRule(0);
