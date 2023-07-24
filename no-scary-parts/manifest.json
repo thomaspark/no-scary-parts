@@ -1,7 +1,7 @@
 {
   "name": "No Scary Parts",
   "short_name": "No Scary Parts",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "manifest_version": 3,
   "description": "Automatically skip the scary parts of popular family movies on streaming services like Disney+",
   "homepage_url": "https://thomaspark.co/projects/no-scary-parts/",
