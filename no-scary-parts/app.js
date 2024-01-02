@@ -63,13 +63,14 @@ function init(data, sheet) {
   } else if (url.startsWith('https://www.disneyplus.com/movies/')) {
     const prefix = 'https://www.disneyplus.com/movies/';
     const slug = url.split('/')[4];
+    const u = url.split('/')[5];
 
     if (DEBUG) {
       console.log('slug:', slug);
     }
 
     for (let id in data) {
-      if (data[id].slug == slug) {
+      if (data[id].url == u) {
         document.body.classList.add('no-scary-parts');
         break;
       }
