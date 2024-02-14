@@ -44,7 +44,7 @@ function init(data, sheet) {
       const duration = data[id].duration;
       const scenes = data[id].scenes;
       const check = setInterval(() => {
-        const video = document.querySelector('#hudson-wrapper video');
+      const video = document.querySelector('#hudson-wrapper video');
 
         if (video && video.readyState === 4) {
           clearInterval(check);
@@ -67,6 +67,7 @@ function init(data, sheet) {
 
     if (DEBUG) {
       console.log('slug:', slug);
+      console.log('hash:', u);
     }
 
     for (let id in data) {
