@@ -44,7 +44,9 @@ body.no-scary-parts [data-gv2containerkey="contentMeta"] .metadata > :first-chil
 [data-gv2elementvalue="b5b89b45-1140-401c-b088-e2d24f85618a"].basic-card:before,
 [data-gv2elementvalue="dbc1bd39-8216-49fa-84b0-78fdf6a6bd1b"].basic-card:before,
 [data-gv2elementvalue="e0d6571e-e3e0-4269-b0eb-d3682ace5d10"].basic-card:before,
-[data-gv2elementvalue="b683ca96-70d0-453d-b014-207b16d74a5a"].basic-card:before{
+[data-gv2elementvalue="b683ca96-70d0-453d-b014-207b16d74a5a"].basic-card:before,
+[data-gv2elementvalue="fb033b57-3757-4ddd-97a2-beb15028b72f"].basic-card:before
+{
   content: "";
   width: 100%;
   height: 100%;
