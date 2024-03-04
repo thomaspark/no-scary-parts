@@ -32,46 +32,46 @@ function init(data, sheet) {
     sheet.deleteRule(0);
   }
 
-  if (url.startsWith('https://www.disneyplus.com/video/')) {
-    const prefix = 'https://www.disneyplus.com/video/';
-    const id = url.split(prefix)[1];
+  if (url.startsWith('https://www.disneyplus.com/play/')) {
+    const prefix = 'https://www.disneyplus.com/play/';
+    const hash = url.split(prefix)[1];
 
     if (DEBUG) {
-      console.log('id:', id);
-    }
-
-    if (id in data) {
-      const duration = data[id].duration;
-      const scenes = data[id].scenes;
-      const check = setInterval(() => {
-      const video = document.querySelector('#hudson-wrapper video');
-
-        if (video && video.readyState === 4) {
-          clearInterval(check);
-          setProgressBarStyles(duration, scenes, sheet);
-
-          video.addEventListener('seeking', () => {
-            checkTime(video, scenes);
-          });
-
-          video.addEventListener('timeupdate', () => {
-            checkTime(video, scenes);
-          });
-        }
-      }, 100);
-    }
-  } else if (url.startsWith('https://www.disneyplus.com/movies/')) {
-    const prefix = 'https://www.disneyplus.com/movies/';
-    const slug = url.split('/')[4];
-    const u = url.split('/')[5];
-
-    if (DEBUG) {
-      console.log('slug:', slug);
-      console.log('hash:', u);
+      console.log('hash:', hash);
     }
 
     for (let id in data) {
-      if (data[id].url == u) {
+      if (data[id].hash == hash) {
+        const duration = data[id].duration;
+        const scenes = data[id].scenes;
+        const check = setInterval(() => {
+        const video = document.querySelector('#hudson-wrapper.video_view--theater disney-web-player')?.shadowRoot.querySelector('video');
+
+          if (video && video.readyState === 4) {
+            clearInterval(check);
+            setProgressBarStyles(duration, scenes, sheet);
+
+            video.addEventListener('seeking', () => {
+              checkTime(video, scenes);
+            });
+
+            video.addEventListener('timeupdate', () => {
+              checkTime(video, scenes);
+            });
+          }
+        }, 100);
+      }
+    }
+  } else if (url.startsWith('https://www.disneyplus.com/browse/entity-')) {
+    const prefix = 'https://www.disneyplus.com/browse/entity-';
+    const hash = url.split('entity-')[1];
+
+    if (DEBUG) {
+      console.log('hash:', hash);
+    }
+
+    for (let id in data) {
+      if (data[id].hash == hash) {
         document.body.classList.add('no-scary-parts');
         break;
       }

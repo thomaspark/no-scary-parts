@@ -3,6 +3,7 @@
     "title": "Aladdin",
     "slug": "aladdin",
     "url": "2SngByljXESE",
+    "hash": "bfad6284-a0aa-4ae1-8469-dc1653121dbb",
     "duration": "5694.146791748047",
     "scenes": [
       {
@@ -23,6 +24,7 @@
     "title": "Bambi",
     "slug": "bambi",
     "url": "2s64jMJasyNO",
+    "hash": "c5350c37-0c8f-4094-8e63-72bfef0a0b08",
     "duration": "5694.146791748047",
     "scenes": [
       {
@@ -47,6 +49,7 @@
     "title": "Beauty and the Beast (1991)",
     "slug": "beauty-and-the-beast-1991",
     "url": "3oEh78YRc9VN",
+    "hash": "97babebc-7013-455a-b377-aa3d7a6e79c1",
     "duration": "5222.050166",
     "scenes": [
       {
@@ -75,6 +78,7 @@
     "title": "Dumbo",
     "slug": "dumbo",
     "url": "3lAXKmGUOnjh",
+    "hash": "d71e65f7-36f1-4ae1-9e3b-4a794d0c970c",
     "duration": "3839.252083251953",
     "scenes": [
       {
@@ -88,6 +92,7 @@
     "slug": "encanto",
     "url": "33q7DY1rtHQH",
     "duration": "6755.665583251953",
+    "hash": "328b0ec7-6e50-4ead-aa7f-c8bb92e6f08a",
     "scenes": [
       {
         "start": "1516",
@@ -111,6 +116,7 @@
     "title": "Encanto Sing-Along",
     "slug": "encanto-sing-along",
     "url": "63ADlgEGPLlY",
+    "hash": "15149446-6018-4a4c-908b-0433b530c8e4",
     "duration": "6755.665583251953",
     "scenes": [
       {
@@ -135,6 +141,7 @@
     "title": "Fantasia",
     "slug": "fantasia",
     "url": "7lt6sjm8nbud",
+    "hash": "f08e9233-5325-45ac-a070-134f9725f1fd",
     "duration": "7579.530291",
     "scenes": [
       {
@@ -151,6 +158,7 @@
     "title": "Frozen",
     "slug": "frozen",
     "url": "4uKGzAJi3ROz",
+    "hash": "04c97b72-504b-47f2-9c6f-fe13d9aea82f",
     "duration": "6367.999666",
     "scenes": [
       {
@@ -175,6 +183,7 @@
     "title": "The Jungle Book",
     "slug": "the-jungle-book",
     "url": "5trzAb4Rz3F9",
+    "hash": "9a969820-2c25-4cf9-a461-ed84696cdf19",
     "duration": "4837.374208251953",
     "scenes": [
       {
@@ -191,6 +200,7 @@
     "title": "The Lion King",
     "slug": "the-lion-king",
     "url": "1HqwiEcje6Nj",
+    "hash": "a3ae7371-39a5-4c0b-a1f2-29a70b372848",
     "duration": "5469.505708",
     "scenes": [
       {
@@ -215,6 +225,7 @@
     "title": "The Little Mermaid",
     "slug": "the-little-mermaid",
     "url": "5MpPFhS8FTXh",
+    "hash": "f7643452-fe64-4b05-8f09-c8bea9b2dd60",
     "duration": "5166.911749",
     "scenes": [
       {
@@ -247,6 +258,7 @@
     "title": "Moana",
     "slug": "moana",
     "url": "70GoJHflgHH9",
+    "hash": "e8896bfa-1052-41f7-ae2e-00255d77cf05",
     "duration": "6684.394333",
     "scenes": [
       {
@@ -271,6 +283,7 @@
     "title": "The Princess and the Frog",
     "slug": "the-princess-and-the-frog",
     "url": "7TPAcC8QPGpm",
+    "hash": "2349fffc-2124-4eca-b5e5-a8bb97e569c4",
     "duration": "6134.506666",
     "scenes": [
       {
@@ -291,6 +304,7 @@
     "title": "Sleeping Beauty",
     "slug": "sleeping-beauty",
     "url": "1rc2EavpNV7U",
+    "hash": "2f365ad5-9a65-410e-b750-947acc66d21e",
     "duration": "4705.242208251953",
     "scenes": [
       {
@@ -303,6 +317,7 @@
     "title": "Tangled",
     "slug": "tangled",
     "url": "3V3ALy4SHStq",
+    "hash": "197d29a0-7a57-4eca-afa9-da1c050c5abe",
     "duration": "6185.762916503906",
     "scenes": [
       {
