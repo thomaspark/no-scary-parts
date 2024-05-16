@@ -9,7 +9,7 @@ function loadTitles(data) {
     const movie = data[key];
     const title = movie.title;
     const count = movie.scenes.length;
-    const url = 'https://www.disneyplus.com/movies/' + movie.slug + '/' + movie.url;
+    const url = 'https://www.disneyplus.com/browse/entity-' + movie.hash;
     const bar = createBar(movie.scenes, movie.duration);
 
     html += `<tr><td><a target="_blank" href="${url}">${movie.title}</a></td><td>${bar}</td></tr>`;
