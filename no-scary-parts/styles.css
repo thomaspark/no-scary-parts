@@ -47,7 +47,8 @@ body.no-scary-parts [data-testid="masthead-metadata"] > :first-child:after {
 [data-gv2elementvalue="b683ca96-70d0-453d-b014-207b16d74a5a"].basic-card:before,
 [data-gv2elementvalue="fb033b57-3757-4ddd-97a2-beb15028b72f"].basic-card:before,
 [data-gv2elementvalue="d4b87168-7d0b-49bc-b138-457ab7723feb"].basic-card:before,
-[data-gv2elementvalue="10615472-1eb1-4566-ad47-162f8a501c27"].basic-card:before
+[data-gv2elementvalue="10615472-1eb1-4566-ad47-162f8a501c27"].basic-card:before,
+[data-gv2elementvalue="d4b87168-7d0b-49bc-b138-457ab7723feb"].basic-card:before
 {
   content: "";
   width: 100%;
