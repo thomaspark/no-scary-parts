@@ -45,7 +45,7 @@ function init(data, sheet) {
         const duration = data[id].duration;
         const scenes = data[id].scenes;
         const check = setInterval(() => {
-        const video = document.querySelector('#hudson-wrapper.video_view--theater disney-web-player')?.shadowRoot.querySelector('video');
+        const video = document.querySelector('#hivePlayer');
 
           if (video && video.readyState === 4) {
             clearInterval(check);
