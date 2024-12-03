@@ -48,7 +48,8 @@ body.no-scary-parts [data-testid="masthead-metadata"] > :first-child:after {
 [data-item-id="e8896bfa-1052-41f7-ae2e-00255d77cf05"]::after,
 [data-item-id="2349fffc-2124-4eca-b5e5-a8bb97e569c4"]::after,
 [data-item-id="2f365ad5-9a65-410e-b750-947acc66d21e"]::after,
-[data-item-id="197d29a0-7a57-4eca-afa9-da1c050c5abe"]::after {
+[data-item-id="197d29a0-7a57-4eca-afa9-da1c050c5abe"]::after,
+[data-item-id="595d62fe-cf3e-4227-9ca4-b2f7cf7b6327"]::after {
   content: "";
   width: 100%;
   height: 100%;
