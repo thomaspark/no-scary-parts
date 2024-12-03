@@ -31,29 +31,30 @@ body.no-scary-parts [data-testid="masthead-metadata"] > :first-child:after {
   pointer-events: none;
 }
 
-[data-gv2elementvalue="8b998fae-f7a6-434a-a8c2-79d853247782"].basic-card:before,
-[data-gv2elementvalue="0281c38c-a92e-403b-b84c-52be9ad43605"].basic-card:before,
-[data-gv2elementvalue="4b822212-e28d-4a6a-abff-87e7c6a74dc0"].basic-card:before,
-[data-gv2elementvalue="ffc06e7f-8122-4d5d-8b87-b4cc8d830136"].basic-card:before,
-[data-gv2elementvalue="8e06a8b7-d667-4e31-939d-f40a6dd78a88"].basic-card:before,
-[data-gv2elementvalue="87982e2b-5636-41a2-9d9a-5bc77cacb7d7"].basic-card:before,
-[data-gv2elementvalue="eef030e8-70da-41cb-8132-fe7a66946855"].basic-card:before,
-[data-gv2elementvalue="42dc2dbf-331d-4665-8746-de2ac6d1f9a2"].basic-card:before,
-[data-gv2elementvalue="65e2279c-5d21-4e92-9e70-42f8507c9996"].basic-card:before,
-[data-gv2elementvalue="c9fd8fa3-fa17-4456-9b37-a5427e308f0e"].basic-card:before,
-[data-gv2elementvalue="b5b89b45-1140-401c-b088-e2d24f85618a"].basic-card:before,
-[data-gv2elementvalue="dbc1bd39-8216-49fa-84b0-78fdf6a6bd1b"].basic-card:before,
-[data-gv2elementvalue="e0d6571e-e3e0-4269-b0eb-d3682ace5d10"].basic-card:before,
-[data-gv2elementvalue="b683ca96-70d0-453d-b014-207b16d74a5a"].basic-card:before,
-[data-gv2elementvalue="fb033b57-3757-4ddd-97a2-beb15028b72f"].basic-card:before,
-[data-gv2elementvalue="d4b87168-7d0b-49bc-b138-457ab7723feb"].basic-card:before,
-[data-gv2elementvalue="10615472-1eb1-4566-ad47-162f8a501c27"].basic-card:before,
-[data-gv2elementvalue="d4b87168-7d0b-49bc-b138-457ab7723feb"].basic-card:before
-{
+[data-item-id="bfad6284-a0aa-4ae1-8469-dc1653121dbb"]::after,
+[data-item-id="c5350c37-0c8f-4094-8e63-72bfef0a0b08"]::after,
+[data-item-id="10615472-1eb1-4566-ad47-162f8a501c27"]::after,
+[data-item-id="97babebc-7013-455a-b377-aa3d7a6e79c1"]::after,
+[data-item-id="d71e65f7-36f1-4ae1-9e3b-4a794d0c970c"]::after,
+[data-item-id="328b0ec7-6e50-4ead-aa7f-c8bb92e6f08a"]::after,
+[data-item-id="15149446-6018-4a4c-908b-0433b530c8e4"]::after,
+[data-item-id="f08e9233-5325-45ac-a070-134f9725f1fd"]::after,
+[data-item-id="04c97b72-504b-47f2-9c6f-fe13d9aea82f"]::after,
+[data-item-id="3f9272e2-33f1-47db-bb2e-9aa2c7c85a96"]::after,
+[data-item-id="d4b87168-7d0b-49bc-b138-457ab7723feb"]::after,
+[data-item-id="9a969820-2c25-4cf9-a461-ed84696cdf19"]::after,
+[data-item-id="a3ae7371-39a5-4c0b-a1f2-29a70b372848"]::after,
+[data-item-id="f7643452-fe64-4b05-8f09-c8bea9b2dd60"]::after,
+[data-item-id="e8896bfa-1052-41f7-ae2e-00255d77cf05"]::after,
+[data-item-id="2349fffc-2124-4eca-b5e5-a8bb97e569c4"]::after,
+[data-item-id="2f365ad5-9a65-410e-b750-947acc66d21e"]::after,
+[data-item-id="197d29a0-7a57-4eca-afa9-da1c050c5abe"]::after {
   content: "";
   width: 100%;
   height: 100%;
   position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
   background-image: url("data:image/svg+xml,%3Csvg width='400px' height='449px' viewBox='0 0 400 449' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch --%3E%3Ctitle%3EGroup%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='no-scary-parts' transform='translate(-50.000000, -26.000000)' fill='%23FFFFFF'%3E%3Cg id='Group' transform='translate(50.000000, 26.000000)'%3E%3Cpath d='M14.851952,24.3005531 C75.6691027,8.10018436 137.051786,8.54157257e-15 199.000002,0 C261.017079,-9.63500554e-16 323.038647,8.11820277 385.064706,24.3546083 C393.86333,26.6578038 400.000002,34.6076224 400.000002,43.7027036 L400.000002,264.221683 C400.000002,275.905913 394.891194,287.006018 386.01593,294.60542 L212.073194,443.543053 C204.557566,449.978273 193.466033,449.950854 185.982313,443.478554 L13.8341699,294.596116 C5.04882745,286.998107 1.6641521e-06,275.956539 1.66415208e-06,264.341377 L1.77353072e-06,43.6266386 C1.7735307e-06,34.5636224 6.09432067,26.633396 14.851952,24.3005531 Z M204.442401,264.993889 C232.438315,259.874862 277.30955,214.258948 289.001239,194.008349 C302.808358,170.093718 294.6146,139.514197 270.699969,125.707079 C246.785338,111.89996 216.205817,120.093718 202.398699,144.008349 C201.573552,145.437545 200.721621,147.073035 199.854159,148.888008 C198.986697,147.073037 198.134766,145.437546 197.309619,144.008349 C183.5025,120.093718 152.92298,111.89996 129.008349,125.707079 C105.093718,139.514197 96.8999598,170.093718 110.707079,194.008349 C122.398768,214.258948 167.270002,259.874862 195.265917,264.993889 C196.711364,265.330927 198.24477,265.481719 199.854159,265.462026 C201.463547,265.481719 202.996954,265.330927 204.442401,264.993889 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-position: top 12px right 8px;
   background-size: 20px 20px;
