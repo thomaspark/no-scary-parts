@@ -40,27 +40,25 @@ function init(data, sheet) {
       console.log('hash:', hash);
     }
 
-    for (let id in data) {
-      if (data[id].hash == hash) {
-        const duration = data[id].duration;
-        const scenes = data[id].scenes;
-        const check = setInterval(() => {
-        const video = document.querySelector('#hivePlayer');
+    if (hash in data) {
+      const duration = data[hash].duration;
+      const scenes = data[hash].scenes;
+      const check = setInterval(() => {
+      const video = document.querySelector('#hivePlayer');
 
-          if (video && video.readyState === 4) {
-            clearInterval(check);
-            setProgressBarStyles(duration, scenes, sheet);
+        if (video && video.readyState === 4) {
+          clearInterval(check);
+          setProgressBarStyles(duration, scenes, sheet);
 
-            video.addEventListener('seeking', () => {
-              checkTime(video, scenes);
-            });
+          video.addEventListener('seeking', () => {
+            checkTime(video, scenes);
+          });
 
-            video.addEventListener('timeupdate', () => {
-              checkTime(video, scenes);
-            });
-          }
-        }, 100);
-      }
+          video.addEventListener('timeupdate', () => {
+            checkTime(video, scenes);
+          });
+        }
+      }, 100);
     }
   } else if (url.startsWith('https://www.disneyplus.com/browse/entity-')) {
     const prefix = 'https://www.disneyplus.com/browse/entity-';
@@ -70,11 +68,8 @@ function init(data, sheet) {
       console.log('hash:', hash);
     }
 
-    for (let id in data) {
-      if (data[id].hash == hash) {
-        document.body.classList.add('no-scary-parts');
-        break;
-      }
+    if (hash in data) {
+      document.body.classList.add('no-scary-parts');
     }
   }
 }
