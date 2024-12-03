@@ -1,5 +1,8 @@
 const DEBUG = false;
 const json = chrome.runtime.getURL('data.json');
+let buffering = false;
+let seeking = false;
+let clickDelay;
 
 fetch(json)
   .then((response) => response.json())
@@ -44,21 +47,38 @@ function init(data, sheet) {
       const duration = data[hash].duration;
       const scenes = data[hash].scenes;
       const check = setInterval(() => {
-      const video = document.querySelector('#hivePlayer');
-
+        const video = document.querySelector('#hivePlayer');
         if (video && video.readyState === 4) {
           clearInterval(check);
           setProgressBarStyles(duration, scenes, sheet);
 
           video.addEventListener('seeking', () => {
-            checkTime(video, scenes);
+            buffering = true;
+            seeking = true;
+          });
+
+          video.addEventListener('waiting', () => {
+            buffering = true;
+          });
+
+          video.addEventListener('seeked', () => {
+          });
+
+          video.addEventListener('canplay', () => {
+            buffering = false;
+          });
+
+          video.addEventListener('canplaythrough', () => {
+            buffering = false;
           });
 
           video.addEventListener('timeupdate', () => {
-            checkTime(video, scenes);
+            if (!buffering) {
+              checkTime(video, scenes, duration);
+            }
           });
         }
-      }, 100);
+      }, 1000);
     }
   } else if (url.startsWith('https://www.disneyplus.com/browse/entity-')) {
     const prefix = 'https://www.disneyplus.com/browse/entity-';
@@ -74,16 +94,50 @@ function init(data, sheet) {
   }
 }
 
-function checkTime(video, scenes) {
+function currentTime() {
+  const progressBar = document.querySelector('disney-web-player-ui .progress-bar');
+  const slider = progressBar.querySelector('.slider-handle-container.from-left');
+  const width = slider.getAttribute('style').replace('width: ', '').replace('%;', '');
+
+  return width / 100;
+}
+
+function checkTime(video, scenes, duration) {
+  const time = currentTime();
+
   if (DEBUG) {
-    console.log(video.currentTime);
+    console.log(time);
   }
   
   scenes.forEach((scene) => {
-    if ((scene['start'] <= video.currentTime) && (video.currentTime < scene['end'])) {
-      video.currentTime = scene['end'];
+    const start = scene['start'] / duration;
+    const end = scene['end'] / duration;
+
+    if ((start <= time) && (time < end)) {
+      const diffPercentage = end - time;
+      const diff = diffPercentage * duration;
+      const skips = Math.ceil(diff/10);
+      const btn = document.querySelector('quick-fast-forward').shadowRoot.querySelector('info-tooltip button');
+
+      if (seeking) {
+        clearTimeout(clickDelay);
+        clickDelay = setTimeout(() => {
+          for (let i = 0; i < skips; i++) {
+            btn.click();
+          }
+
+          seeking = false;
+        }, 1500);
+      } else {
+        for (let i = 0; i < skips; i++) {
+          btn.click();
+        }
+      }
+
+      buffering = true;
     }
   });
+
 }
 
 function setProgressBarStyles(duration, scenes, sheet) {
