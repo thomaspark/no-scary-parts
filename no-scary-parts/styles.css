@@ -1,18 +1,3 @@
-.progress-bar .slider-container:before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 3px;
-}
-
-.progress-bar .slider-container:hover:before {
-  top: 7px;
-  height: 8px;
-}
-
 body.no-scary-parts [data-testid="masthead-metadata"] > :first-child {
   position: relative;
   overflow: visible;

@@ -47,7 +47,7 @@ function init(data, sheet) {
       const duration = data[hash].duration;
       const scenes = data[hash].scenes;
       const check = setInterval(() => {
-        const video = document.querySelector('#hivePlayer');
+        const video = document.querySelector('#hivePlayer1');
         if (video && video.readyState === 4) {
           clearInterval(check);
           setProgressBarStyles(duration, scenes, sheet);
@@ -95,11 +95,15 @@ function init(data, sheet) {
 }
 
 function currentTime() {
-  const progressBar = document.querySelector('disney-web-player-ui .progress-bar');
-  const slider = progressBar.querySelector('.slider-handle-container.from-left');
-  const width = slider.getAttribute('style').replace('width: ', '').replace('%;', '');
+  const progressBar = document.querySelector('disney-web-player-ui progress-bar');
+  const slider = progressBar?.shadowRoot?.querySelector('.progress-bar__progress');
 
-  return width / 100;
+  if (slider) {
+    const width = slider.getAttribute('style').replace('width: ', '').replace('%;', '');
+    return width / 100;
+  }
+
+  return null;
 }
 
 function checkTime(video, scenes, duration) {
@@ -127,7 +131,7 @@ function checkTime(video, scenes, duration) {
           }
 
           seeking = false;
-        }, 1500);
+        }, 10);
       } else {
         for (let i = 0; i < skips; i++) {
           btn.click();
@@ -141,9 +145,16 @@ function checkTime(video, scenes, duration) {
 }
 
 function setProgressBarStyles(duration, scenes, sheet) {
-  const selector = '.progress-bar .slider-container:before';
+  const selector = '.progress-bar__total-duration::before';
   const color = 'purple';
-  let background = 'background: ';
+  let background = `${selector} { content: ""; \
+                                  position: absolute; \
+                                  top: 0; \
+                                  left: 0; \
+                                  right: 0; \
+                                  width: 100%; \
+                                  height: 4px; \
+                                  background: `;
 
   if (DEBUG) {
     console.log('duration:', duration);
@@ -164,7 +175,12 @@ function setProgressBarStyles(duration, scenes, sheet) {
     }
   });
 
-  background += ';'
+  background += `;} \
+                .progress-bar__container:hover ${selector} { height: 6px; }`
 
-  sheet.insertRule(selector + '{' + background + '}', 0);
+  const progressBar = document.querySelector('progress-bar');
+  const style = document.createElement('style');
+  style.textContent = background;
+
+  progressBar.shadowRoot.appendChild(style);
 }
