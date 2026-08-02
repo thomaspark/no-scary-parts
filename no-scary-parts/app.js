@@ -1,8 +1,6 @@
 const DEBUG = false;
 const json = chrome.runtime.getURL('data.json');
-let buffering = false;
-let seeking = false;
-let clickDelay;
+let progressBarObserver = null;
 
 fetch(json)
   .then((response) => response.json())
@@ -35,6 +33,11 @@ function init(data, sheet) {
     sheet.deleteRule(0);
   }
 
+  if (progressBarObserver) {
+    progressBarObserver.disconnect();
+    progressBarObserver = null;
+  }
+
   if (url.startsWith('https://www.disneyplus.com/play/')) {
     const prefix = 'https://www.disneyplus.com/play/';
     const hash = url.split(prefix)[1];
@@ -51,32 +54,6 @@ function init(data, sheet) {
         if (video && video.readyState === 4) {
           clearInterval(check);
           setProgressBarStyles(duration, scenes, sheet);
-
-          video.addEventListener('seeking', () => {
-            buffering = true;
-            seeking = true;
-          });
-
-          video.addEventListener('waiting', () => {
-            buffering = true;
-          });
-
-          video.addEventListener('seeked', () => {
-          });
-
-          video.addEventListener('canplay', () => {
-            buffering = false;
-          });
-
-          video.addEventListener('canplaythrough', () => {
-            buffering = false;
-          });
-
-          video.addEventListener('timeupdate', () => {
-            if (!buffering) {
-              checkTime(video, scenes, duration);
-            }
-          });
         }
       }, 1000);
     }
@@ -94,54 +71,15 @@ function init(data, sheet) {
   }
 }
 
-function currentTime() {
-  const progressBar = document.querySelector('disney-web-player-ui progress-bar');
-  const slider = progressBar?.shadowRoot?.querySelector('.progress-bar__progress');
-
-  if (slider) {
-    const width = slider.getAttribute('style').replace('width: ', '').replace('%;', '');
-    return width / 100;
-  }
-
-  return null;
+// Disney's player nests its controls inside a shadow root hosted by
+// main-app-controls-overlay; that boundary can't be crossed with a plain
+// querySelector, so every lookup below has to pierce it explicitly.
+function getControlsOverlayRoot() {
+  return document.querySelector('main-app-controls-overlay')?.shadowRoot || null;
 }
 
-function checkTime(video, scenes, duration) {
-  const time = currentTime();
-
-  if (DEBUG) {
-    console.log(time);
-  }
-  
-  scenes.forEach((scene) => {
-    const start = scene['start'] / duration;
-    const end = scene['end'] / duration;
-
-    if ((start <= time) && (time < end)) {
-      const diffPercentage = end - time;
-      const diff = diffPercentage * duration;
-      const skips = Math.ceil(diff/10);
-      const btn = document.querySelector('quick-fast-forward').shadowRoot.querySelector('info-tooltip button');
-
-      if (seeking) {
-        clearTimeout(clickDelay);
-        clickDelay = setTimeout(() => {
-          for (let i = 0; i < skips; i++) {
-            btn.click();
-          }
-
-          seeking = false;
-        }, 10);
-      } else {
-        for (let i = 0; i < skips; i++) {
-          btn.click();
-        }
-      }
-
-      buffering = true;
-    }
-  });
-
+function getProgressBarElement() {
+  return getControlsOverlayRoot()?.querySelector('progress-bar') || null;
 }
 
 function setProgressBarStyles(duration, scenes, sheet) {
@@ -163,7 +101,6 @@ function setProgressBarStyles(duration, scenes, sheet) {
   scenes.forEach((scene, i) => {
     const start = (100 * scene['start'] / duration).toFixed(4);
     const end = (100 * scene['end'] / duration).toFixed(4);
-    const width = (end - start);
     background += 'linear-gradient(90deg, ';
     background += 'transparent ' + start + '%,';
     background += color + ' ' + start + '%,';
@@ -178,9 +115,38 @@ function setProgressBarStyles(duration, scenes, sheet) {
   background += `;} \
                 .progress-bar__container:hover ${selector} { height: 6px; }`
 
-  const progressBar = document.querySelector('progress-bar');
-  const style = document.createElement('style');
-  style.textContent = background;
+  // progress-bar only exists in the DOM while the controls are shown, and
+  // gets unmounted/remounted each time they auto-hide/reappear, so the style
+  // has to be re-injected on every remount rather than just once.
+  const inject = () => {
+    const progressBar = getProgressBarElement();
 
-  progressBar.shadowRoot.appendChild(style);
+    if (!progressBar?.shadowRoot || progressBar.shadowRoot.querySelector('style[data-no-scary-parts]')) {
+      return;
+    }
+
+    const style = document.createElement('style');
+    style.setAttribute('data-no-scary-parts', '');
+    style.textContent = background;
+    progressBar.shadowRoot.appendChild(style);
+  };
+
+  // main-app-controls-overlay itself can take a moment to attach after the
+  // video becomes ready, so retry rather than giving up on the first miss.
+  const attach = (attemptsLeft) => {
+    const overlayRoot = getControlsOverlayRoot();
+
+    if (!overlayRoot) {
+      if (attemptsLeft > 0) {
+        setTimeout(() => attach(attemptsLeft - 1), 500);
+      }
+      return;
+    }
+
+    inject();
+    progressBarObserver = new MutationObserver(inject);
+    progressBarObserver.observe(overlayRoot, { childList: true, subtree: true });
+  };
+
+  attach(20);
 }
